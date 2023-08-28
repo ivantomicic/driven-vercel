@@ -18,6 +18,8 @@ export default function Component(props) {
 	const { editorBlocks } = props?.data?.page;
 	const blocks = flatListToHierarchical(editorBlocks);
 
+	console.log(editorBlocks);
+
 	return (
 		<>
 			<Header props={themeSettings} />
@@ -25,7 +27,16 @@ export default function Component(props) {
 				Click This Button For Alert 2
 			</button>
 			<CoreParagraph />
-			<WordPressBlocksViewer blocks={blocks} />
+			{/* <WordPressBlocksViewer blocks={blocks} /> */}
+
+			{editorBlocks.map((block, index) => {
+				if (block.__typename === "CoreParagraph") {
+					return <CoreParagraph props={block.attributes} />;
+				} else {
+					return <p key={index}>nije bleja</p>;
+				}
+			})}
+
 			<Footer props={themeSettings} />
 		</>
 	);

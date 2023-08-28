@@ -5,9 +5,11 @@ import { gql } from "@apollo/client";
  * requested from WPGraphQL Content Blocks.
  */
 export default function CoreParagraph(props) {
+	console.log("atrs", props?.props?.content);
+
 	return (
 		<div>
-			<p>this is paragraph</p>
+			<p>{props?.props?.content}</p>
 			<button onClick={() => alert("🍍")}>🍍</button>
 		</div>
 	);

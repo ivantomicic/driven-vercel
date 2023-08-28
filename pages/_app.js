@@ -15,13 +15,15 @@ export default function MyApp({ Component, pageProps }) {
 			<button onClick={() => alert("👻")}>
 				Click This Button For Alert
 			</button>
-			<WordPressBlocksProvider
+			{/* <WordPressBlocksProvider
 				config={{
 					blocks,
 				}}
 			>
 				<Component {...pageProps} key={router.asPath} />
-			</WordPressBlocksProvider>
+			</WordPressBlocksProvider> */}
+
+			<Component {...pageProps} key={router.asPath} />
 		</FaustProvider>
 	);
 }
