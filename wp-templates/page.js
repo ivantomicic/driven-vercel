@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
-import flatListToHierarchical from "../utils/flatListToHierarchical";
+import { flatListToHierarchical } from "@faustwp/core";
 import getFragmentDataFromBlocks from "../utils/getFragmentDataFromBlocks";
 import { WordPressBlocksViewer } from "@faustwp/blocks";
 import blocks from "../wp-blocks";
@@ -52,7 +52,9 @@ Component.query = gql`
 			editorBlocks {
 				id: clientId
 				parentId: parentClientId
-				renderedHtml
+				__typename
+  				renderedHtml
+				isDynamic
 				# Get all block fragment keys and call them in the query
 				${getFragmentDataFromBlocks(blocks).keys}
 			}
