@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
+import { Header, Footer } from "../components";
 
 export default function Component(props) {
 	// Loading state for previews
@@ -7,7 +8,14 @@ export default function Component(props) {
 		return <>Loading...</>;
 	}
 
-	return <p>page</p>;
+	const themeSettings = props.data.drivenThemeSettings;
+
+	return (
+		<>
+			<Header props={themeSettings} />
+			<Footer props={themeSettings} />
+		</>
+	);
 }
 
 Component.variables = ({ databaseId }, ctx) => {
@@ -19,6 +27,8 @@ Component.variables = ({ databaseId }, ctx) => {
 
 Component.query = gql`
 	${BlogInfoFragment}
+	${Header.fragments.entry}
+	${Footer.fragments.entry}
 
 	query GetPageData($databaseId: ID!, $asPreview: Boolean = false) {
 		page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
@@ -27,6 +37,10 @@ Component.query = gql`
 		}
 		generalSettings {
 			...BlogInfoFragment
+		}
+		drivenThemeSettings {
+			...HeaderFragment
+			...FooterFragment
 		}
 	}
 `;
