@@ -7,6 +7,7 @@ import DrivenTeamMembersCard from "./DrivenTeamMembersCard";
 import DrivenArticle from "./DrivenArticle";
 import DrivenDemoRequest from "./DrivenDemoRequest";
 import DrivenTiers from "./DrivenTiers";
+import DrivenFeaturesSlider from "./DrivenFeaturesSlider";
 
 export default {
 	DrivenHero,
@@ -18,4 +19,5 @@ export default {
 	DrivenArticle,
 	DrivenDemoRequest,
 	DrivenTiers,
+	DrivenFeaturesSlider,
 };
