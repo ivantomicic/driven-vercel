@@ -33,6 +33,7 @@ export default function DrivenHero(props) {
 DrivenHero.fragments = {
 	entry: gql`
 		fragment DrivenHeroFragment on DrivenHero {
+			isDynamic
 			attributes {
 				subtitle
 				title

@@ -24,6 +24,7 @@ export default function CoreParagraph(props) {
 CoreParagraph.fragments = {
 	entry: gql`
 		fragment CoreParagraphFragment on CoreParagraph {
+			isDynamic
 			attributes {
 				content
 				fontSize
