@@ -6,11 +6,6 @@ export default function DrivenHero(props) {
 	const { subtitle, title, image: rawImage } = props.attributes;
 	const image = JSON.parse(rawImage);
 
-	function handleClick() {
-		console.log("Clicked me!");
-		alert("Clicked me!");
-	}
-
 	return (
 		<div className="block-hero">
 			<div className="container">
@@ -20,7 +15,10 @@ export default function DrivenHero(props) {
 						className="hero-title"
 						dangerouslySetInnerHTML={{ __html: title }}
 					></p>
-					<button onClick={handleClick}>klikni me</button>
+
+					<button onClick={() => alert("👻 3")}>
+						Click This Button For Alert 3
+					</button>
 					<WordPressBlocksViewer blocks={props?.children ?? []} />
 				</div>
 

@@ -20,9 +20,6 @@ export default function MyApp({ Component, pageProps }) {
 					blocks,
 				}}
 			>
-				<button onClick={() => alert("👻 2")}>
-					Click This Button For Alert 2
-				</button>
 				<Component {...pageProps} key={router.asPath} />
 			</WordPressBlocksProvider>
 		</FaustProvider>

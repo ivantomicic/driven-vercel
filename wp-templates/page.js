@@ -20,6 +20,9 @@ export default function Component(props) {
 	return (
 		<>
 			<Header props={themeSettings} />
+			<button onClick={() => alert("👻 2")}>
+				Click This Button For Alert 2
+			</button>
 			<WordPressBlocksViewer blocks={blocks} />
 			<Footer props={themeSettings} />
 		</>
