@@ -9,7 +9,9 @@ export default function MyApp({ Component, pageProps }) {
 
 	return (
 		<FaustProvider pageProps={pageProps}>
-			<button>Click This Button For Alert</button>
+			<button onClick={() => alert("👻")}>
+				Click This Button For Alert
+			</button>
 			<Component {...pageProps} key={router.asPath} />
 		</FaustProvider>
 	);
