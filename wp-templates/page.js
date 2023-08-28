@@ -4,6 +4,7 @@ import flatListToHierarchical from "../utils/flatListToHierarchical";
 import getFragmentDataFromBlocks from "../utils/getFragmentDataFromBlocks";
 import { WordPressBlocksViewer } from "@faustwp/blocks";
 import blocks from "../wp-blocks";
+import CoreParagraph from "../wp-blocks/CoreParagraph";
 import { Header, Footer } from "../components";
 
 export default function Component(props) {
@@ -23,6 +24,7 @@ export default function Component(props) {
 			<button onClick={() => alert("👻 2")}>
 				Click This Button For Alert 2
 			</button>
+			<CoreParagraph />
 			<WordPressBlocksViewer blocks={blocks} />
 			<Footer props={themeSettings} />
 		</>

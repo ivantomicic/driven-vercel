@@ -5,15 +5,6 @@ import { gql } from "@apollo/client";
  * requested from WPGraphQL Content Blocks.
  */
 export default function CoreParagraph(props) {
-	const attributes = props.attributes;
-
-	/**
-	 * getStyles is a helper function to map the attributes data to an
-	 * actual styles object that can be used in React.
-	 *
-	 * @see ../utils/getStyles.js
-	 */
-
 	return (
 		<div>
 			<p>this is paragraph</p>
