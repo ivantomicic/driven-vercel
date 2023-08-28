@@ -167,13 +167,15 @@
 						width: 100%;
 						margin: 0 $spacing-3;
 
-						.pager-item {
+						.swiper-pagination-bullet {
 							cursor: pointer;
 							display: block;
 							width: $spacing-2;
 							height: $spacing-2;
+							background-color: transparent;
 							border: 1px solid #a8a8a8;
 							border-radius: 100%;
+							opacity: 1;
 
 							&:after {
 								content: "";
@@ -187,7 +189,7 @@
 								transform: scale(0);
 							}
 
-							&.pager-item-active {
+							&.swiper-pagination-bullet-active {
 								border-color: $colors-brand-primary;
 
 								&:after {
