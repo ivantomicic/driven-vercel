@@ -18,6 +18,13 @@ export default function DrivenHero(props) {
 						dangerouslySetInnerHTML={{ __html: title }}
 					></p>
 
+					{/* check if props.isDyanmic and then add paragraph */}
+					{props.isDynamic && (
+						<p className="hero-title">
+							This is a dynamic paragraph
+						</p>
+					)}
+
 					<button onClick={() => alert("👻 3")}>
 						Click This Button For Alert 3
 					</button>
@@ -35,7 +42,6 @@ export default function DrivenHero(props) {
 DrivenHero.fragments = {
 	entry: gql`
 		fragment DrivenHeroFragment on DrivenHero {
-			isDynamic
 			attributes {
 				subtitle
 				title
