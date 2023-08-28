@@ -2,8 +2,8 @@ import { gql } from "@apollo/client";
 import { getBackgroundImageStyles } from "../utils/themeUtils";
 
 export default function DrivenHeroInner(props) {
-	const title = props.attributes.title;
-	const image = JSON.parse(props.attributes.image);
+	const title = props?.props?.attributes.title;
+	const image = JSON.parse(props?.props?.attributes.image);
 
 	return (
 		<>

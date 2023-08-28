@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap");
 @import "imports/normalize";
 @import "core/main";
 
 html,
 body {
 	background-color: $colors-background-primary;
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	color: $colors-text-primary;
 }
 
