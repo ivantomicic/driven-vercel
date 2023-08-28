@@ -6,8 +6,6 @@ export default function DrivenArticle(props) {
 
 	return (
 		<div className="block-wrapper container">
-			{/* <WordPressBlocksViewer blocks={props?.children ?? []} /> */}
-			artikl
 			<GutenbergBlocks blocks={props?.props?.children} />
 		</div>
 	);
