@@ -1,16 +1,15 @@
 import { gql } from "@apollo/client";
-// import { WordPressBlocksViewer } from "@faustwp/blocks";
+import GutenbergBlocks from "../utils/GutenbergBlocks";
 
 export default function DrivenTeamMembers(props) {
-	const { title } = props.attributes;
+	const { title } = props?.props?.attributes;
 
 	return (
 		<div className="team-group">
 			{title && <p className="block-title">{title}</p>}
 
 			<div className="member-cards">
-				{/* <WordPressBlocksViewer blocks={props?.children ?? []} /> */}
-				kartice
+				<GutenbergBlocks blocks={props?.props?.children} />
 			</div>
 		</div>
 	);

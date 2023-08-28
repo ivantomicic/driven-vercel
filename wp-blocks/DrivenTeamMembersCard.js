@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 import { PictureTag } from "../utils/themeUtils";
 
 export default function DrivenTeamMembersCard(props) {
-	const { name, title, image: rawImage } = props.attributes;
+	const { name, title, image: rawImage } = props?.props?.attributes;
 	const image = JSON.parse(rawImage);
 
 	return (
