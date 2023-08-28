@@ -13,7 +13,7 @@ export default function Component(props) {
 	return (
 		<>
 			<Header props={themeSettings} />
-			<p>op op op</p>
+			<p>op op op !</p>
 		</>
 	);
 }
