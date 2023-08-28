@@ -1,1 +1,1 @@
-export { default as Footer } from "./footer.js";
+export { default as Footer } from "./Footer";
