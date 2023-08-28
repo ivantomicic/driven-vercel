@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { useRef } from "react"; // Import useRef
-import Lottie from "lottie-react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import groovyWalkAnimation from "../lottie.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y } from "swiper/modules";
@@ -33,6 +33,8 @@ export default function DrivenFeaturesSlider(props) {
 		updateElementTextWithAnimation(subtitleContainer, subtitle);
 	};
 
+	console.log(slides[0].lottie.url);
+
 	return (
 		<div className="block-features-slider">
 			<div className="bg-l"></div>
@@ -40,7 +42,13 @@ export default function DrivenFeaturesSlider(props) {
 
 			<div className="container">
 				<div className="graphic" id="features-slider-player">
-					<Lottie animationData={groovyWalkAnimation} />
+					{/* <Lottie animationData={groovyWalkAnimation} /> */}
+					<Player
+						autoplay
+						loop
+						src={slides[0].lottie.url}
+						style={{ height: "300px", width: "300px" }}
+					></Player>
 				</div>
 
 				<div className="content">
