@@ -6,8 +6,6 @@ export default function DrivenHero(props) {
 	const { subtitle, title, image: rawImage } = props.attributes;
 	const image = JSON.parse(rawImage);
 
-	console.log("🍍", props.isDynamic);
-
 	return (
 		<div className="block-hero">
 			<div className="container">
@@ -17,17 +15,6 @@ export default function DrivenHero(props) {
 						className="hero-title"
 						dangerouslySetInnerHTML={{ __html: title }}
 					></p>
-
-					{/* check if props.isDyanmic and then add paragraph */}
-					{props.isDynamic && (
-						<p className="hero-title">
-							This is a dynamic paragraph
-						</p>
-					)}
-
-					<button onClick={() => alert("👻 3")}>
-						Click This Button For Alert 3
-					</button>
 					<WordPressBlocksViewer blocks={props?.children ?? []} />
 				</div>
 

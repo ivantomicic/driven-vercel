@@ -4,7 +4,6 @@ import { flatListToHierarchical } from "@faustwp/core";
 import getFragmentDataFromBlocks from "../utils/getFragmentDataFromBlocks";
 import { WordPressBlocksViewer } from "@faustwp/blocks";
 import blocks from "../wp-blocks";
-import CoreParagraph from "../wp-blocks/CoreParagraph";
 import { Header, Footer } from "../components";
 
 export default function Component(props) {
@@ -18,25 +17,10 @@ export default function Component(props) {
 	const { editorBlocks } = props?.data?.page;
 	const blocks = flatListToHierarchical(editorBlocks);
 
-	console.log(editorBlocks);
-
 	return (
 		<>
 			<Header props={themeSettings} />
-			<button onClick={() => alert("👻 2")}>
-				Click This Button For Alert 2
-			</button>
-			<CoreParagraph />
-			{/* <WordPressBlocksViewer blocks={blocks} /> */}
-
-			{editorBlocks.map((block, index) => {
-				if (block.__typename === "CoreParagraph") {
-					return <CoreParagraph props={block.attributes} />;
-				} else {
-					return <p key={index}>nije bleja</p>;
-				}
-			})}
-
+			<WordPressBlocksViewer blocks={blocks} />
 			<Footer props={themeSettings} />
 		</>
 	);
@@ -63,9 +47,7 @@ Component.query = gql`
 			editorBlocks {
 				id: clientId
 				parentId: parentClientId
-				__typename
   				renderedHtml
-				isDynamic
 				# Get all block fragment keys and call them in the query
 				${getFragmentDataFromBlocks(blocks).keys}
 			}

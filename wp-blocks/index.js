@@ -1,4 +1,3 @@
-import CoreParagraph from "./CoreParagraph";
 import DrivenHero from "./DrivenHero";
 import DrivenHeroInner from "./DrivenHeroInner";
 import DrivenSection from "./DrivenSection";
@@ -10,14 +9,13 @@ import DrivenDemoRequest from "./DrivenDemoRequest";
 import DrivenTiers from "./DrivenTiers";
 
 export default {
-	CoreParagraph,
 	DrivenHero,
-	// DrivenHeroInner,
-	// DrivenSection,
-	// DrivenSectionHeading,
-	// DrivenTeamMembers,
-	// DrivenTeamMembersCard,
-	// DrivenArticle,
-	// DrivenDemoRequest,
-	// DrivenTiers,
+	DrivenHeroInner,
+	DrivenSection,
+	DrivenSectionHeading,
+	DrivenTeamMembers,
+	DrivenTeamMembersCard,
+	DrivenArticle,
+	DrivenDemoRequest,
+	DrivenTiers,
 };
