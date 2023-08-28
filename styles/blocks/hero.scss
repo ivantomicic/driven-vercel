@@ -1,0 +1,66 @@
+.block-hero {
+	padding: $spacing-8 0 $spacing-4 0;
+
+	.container {
+		@include breakpoint-down(m) {
+			.content {
+				text-align: center;
+				margin-bottom: $spacing-4;
+			}
+		}
+
+		@include breakpoint-up(m) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: $spacing-4;
+
+			.content {
+				width: 420px;
+				flex-shrink: 0;
+			}
+
+			.image {
+				max-width: 650px;
+			}
+		}
+	}
+
+	.hero-subtitle {
+		margin: 0;
+		color: $colors-other-blue;
+		font-size: 20px;
+		font-weight: 700;
+		text-transform: uppercase;
+
+		@include breakpoint-down(s) {
+			font-size: 18px;
+		}
+	}
+
+	.hero-title {
+		margin: $spacing-4 0;
+		font-size: 44px;
+		line-height: 1.2;
+		font-weight: 700;
+
+		@include breakpoint-down(s) {
+			font-size: 36px;
+			margin: $spacing-2 0 $spacing-3 0;
+		}
+
+		strong {
+			display: block;
+			color: $colors-brand-primary;
+		}
+	}
+
+	.content .btns-group {
+		margin-top: $spacing-4;
+	}
+
+	> .btns-group:last-child {
+		justify-content: center;
+		margin-top: $spacing-4;
+	}
+}

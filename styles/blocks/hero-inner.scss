@@ -1,0 +1,40 @@
+.block-hero-inner {
+	padding: 72px 0;
+	background-size: cover;
+	background-position: center;
+
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to right,
+			rgba(0, 0, 0, 0.75) 50%,
+			rgba(0, 0, 0, 0.5) 75%,
+			rgba(0, 0, 0, 0.25)
+		);
+	}
+
+	.title {
+		font-size: 56px;
+		line-height: 1.2;
+		font-weight: 300;
+		color: white;
+		text-transform: uppercase;
+
+		strong {
+			display: block;
+			font-weight: 700;
+			color: $colors-brand-primary;
+		}
+	}
+
+	@include breakpoint-down(s) {
+		padding: 40px 0;
+
+		.title {
+			font-size: 40px;
+		}
+	}
+}

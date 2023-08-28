@@ -1,0 +1,11 @@
+.block-separator {
+	@extend .container;
+	height: 28px;
+	background-color: $colors-brand-primaryLight;
+	box-shadow: 0 0 0 100vmax $colors-brand-primaryLight;
+	clip-path: inset(0 -100vmax);
+	background-image: url("../../assets/images/separator.svg");
+	background-position: 0% 0%;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+}

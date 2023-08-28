@@ -1,0 +1,43 @@
+.team-group {
+	margin-top: 100px;
+
+	.member-cards {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: $spacing-3;
+
+		@include breakpoint-up(s) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include breakpoint-up(m) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.member-card {
+		padding: $spacing-4;
+		text-align: center;
+		background-color: $colors-background-secondary;
+		box-shadow: $box-shadow-1;
+		border-radius: $spacing-1;
+
+		.avatar {
+			display: inline-block;
+			width: 160px;
+			aspect-ratio: 1 / 1;
+			object-fit: cover;
+			border-radius: 100%;
+		}
+
+		.name {
+			margin: $spacing-5 0 0 0;
+			font-size: 22px;
+			font-weight: 600;
+		}
+
+		.title {
+			margin: $spacing-2 0 0 0;
+		}
+	}
+}

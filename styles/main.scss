@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900");
+@import "imports/normalize";
+@import "core/main";
+
+$theme-path: "/wp-content/themes/drivenworld";
+
+html,
+body {
+	background-color: $colors-background-primary;
+	font-family: "Source Sans Pro", sans-serif;
+	color: $colors-text-primary;
+}
+
+.container {
+	max-width: 1152px;
+	width: 90%;
+	margin-inline: auto;
+}
+
+@import "parts/header";
+@import "parts/footer";
+@import "blocks/main";

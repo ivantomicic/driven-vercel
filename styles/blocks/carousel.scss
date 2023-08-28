@@ -1,0 +1,100 @@
+@import "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css";
+
+.component-slider {
+	.pager {
+		max-width: 415px;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-2;
+
+		button {
+			cursor: pointer;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			gap: $spacing-2;
+			width: 100%;
+			background: $colors-background-secondary;
+			border: 1px solid $colors-border-secondary;
+			border-radius: $spacing-1;
+			padding: 20px;
+			text-align: left;
+			color: $colors-text-primary;
+			line-height: 1.5;
+			transition: 250ms;
+
+			.dot {
+				flex-shrink: 0;
+				display: block;
+				width: 20px;
+				height: 20px;
+				border-radius: 20px;
+				background-color: $colors-background-tertiary;
+				transition: 150ms;
+
+				&:after {
+					content: "";
+					display: block;
+					width: 50%;
+					height: 50%;
+					position: absolute;
+					top: 25%;
+					left: 25%;
+					border-radius: 100%;
+					background-color: $colors-brand-primary;
+					opacity: 0;
+					transition: 150ms;
+				}
+			}
+
+			.progress {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 0%;
+				height: 2px;
+				background-color: $colors-other-blue;
+			}
+
+			&:hover {
+				border-color: $colors-border-primary;
+			}
+		}
+
+		.is-selected button,
+		.pager-button-active {
+			.dot {
+				background-color: rgba($colors-brand-primary, 0.125);
+
+				&:after {
+					opacity: 1;
+				}
+			}
+
+			.progress {
+				width: 100%;
+			}
+		}
+	}
+
+	.slides {
+		max-width: 576px;
+	}
+
+	@include breakpoint-down(m) {
+		.slides {
+			margin-inline: auto;
+			margin-top: $spacing-4;
+		}
+	}
+
+	@include breakpoint-up(m) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: $spacing-4;
+		align-items: center;
+	}
+}

@@ -1,0 +1,112 @@
+// Lots of !importants due to default WP style overrides
+
+@import "core/colors.scss";
+
+.edit-post-visual-editor__post-title-wrapper {
+	background-color: #f7f7f7;
+	margin-top: 0px !important;
+	padding: 24px 0px;
+	border-bottom: 2px solid #f5f5f5;
+
+	.wp-block-post-title {
+		margin: 0 auto !important;
+		text-align: center;
+		color: black;
+	}
+}
+
+.editor-styles-wrapper {
+	padding: 0px 0px 0px 0px;
+}
+
+.is-selected:after {
+	border-radius: 4px !important;
+	box-shadow:
+		rgba(#fb705b, 1) 1px 1px 0px 0px,
+		rgba(#fb705b, 1) -1px -1px 0px 0px,
+		rgba(#fb705b, 1) -1px 1px 0px 0px,
+		rgba(#fb705b, 1) 1px -1px 0px 0px !important;
+}
+
+.block-list-appender button,
+.block-editor-inserter button {
+	background-color: #fb705b !important;
+
+	&:hover {
+		background-color: #f28564 !important;
+	}
+}
+
+[data-type="driven/block"],
+[data-type="driven/section"],
+[data-type="driven/features"],
+[data-type="driven/carousel"],
+[data-type="driven/team-members"] {
+	> .block-list-appender {
+		padding-top: 16px;
+		position: static;
+		width: 100%;
+
+		button {
+			width: 100% !important;
+			height: 40px !important;
+		}
+	}
+}
+
+.is-root-container > .block-list-appender {
+	padding: 16px;
+	button {
+		width: 100% !important;
+		box-shadow: none !important;
+		height: 50px !important;
+
+		svg {
+			height: 100px !important;
+			width: 100px !important;
+
+			* {
+				fill: white !important;
+			}
+		}
+	}
+}
+
+.dnd-list {
+	li {
+		border: 1px dashed #eee;
+		padding: 4px 8px;
+		display: flex;
+		align-items: center;
+		transition: 0.15s;
+
+		.label {
+			cursor: pointer;
+			display: block;
+			width: 100%;
+			margin: 0 auto 0 4px;
+		}
+
+		.drag-me {
+			cursor: move;
+		}
+
+		svg {
+			flex-shrink: 0;
+			width: 16px;
+			height: 16px;
+			* {
+				fill: #ccc;
+			}
+		}
+
+		button:hover svg * {
+			fill: $colors-status-error;
+		}
+
+		&.active {
+			border-color: $colors-brand-primary;
+			color: $colors-brand-primary;
+		}
+	}
+}

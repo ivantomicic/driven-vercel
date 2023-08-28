@@ -1,0 +1,241 @@
+.block-plans {
+	.payment-switch {
+		display: flex;
+		justify-content: center;
+		gap: $spacing-3;
+		align-items: center;
+		margin-bottom: $spacing-5 * 2;
+		font-size: 14px;
+		font-weight: 600;
+
+		.label {
+			transition: 0.2s;
+			cursor: pointer;
+		}
+
+		.switch {
+			border-radius: 100px;
+			border: none;
+			background-color: #ffddd3;
+			width: 40px;
+			height: 14px;
+
+			.dot {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 14px;
+				height: 14px;
+				background-color: #ff5724;
+				box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
+				border-radius: inherit;
+				transform: scale(1.5);
+				transition: 0.2s;
+			}
+
+			&:hover .dot {
+				transform: scale(1.6);
+			}
+		}
+
+		&.anually .switch {
+			.dot {
+				left: calc(100% - 14px);
+			}
+		}
+
+		&.anually .label[data-period="anually"] {
+			color: $colors-brand-primary;
+		}
+
+		&:not(.anually) .label[data-period="monthly"] {
+			color: $colors-brand-primary;
+		}
+	}
+
+	.plan {
+		box-shadow: $box-shadow-1;
+		background-color: $colors-background-primary;
+		box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+		padding: 0 $spacing-3 $spacing-3 $spacing-3;
+
+		.label {
+			width: 90%;
+			margin: 0 auto;
+			transform: translate(0%, -50%);
+			font-size: 20px;
+			font-weight: 600;
+			text-align: center;
+			padding: $spacing-1;
+			color: #e1e1e2;
+			background-color: #333;
+
+			span {
+				z-index: 1;
+			}
+		}
+
+		.price {
+			margin: $spacing-1 0;
+			display: flex;
+			justify-content: center;
+			gap: $spacing-1;
+
+			.amount,
+			.tag {
+				transition: 0.4s;
+			}
+
+			.amount {
+				line-height: 1;
+				font-size: 36px;
+				font-weight: 700;
+
+				sup {
+					font-size: 0.6em;
+				}
+
+				span {
+					font-weight: 400;
+					font-size: 0.6em;
+				}
+			}
+
+			.tag {
+				padding: $spacing-05 $spacing-1;
+				background-color: #e8fbd3;
+				color: #0e6f0c;
+				gap: $spacing-05;
+				align-items: center;
+				border-radius: $spacing-05;
+				font-size: 14px;
+				display: none;
+				transform: translate(16px, 0%);
+				opacity: 0;
+				visibility: hidden;
+
+				&.block {
+					display: inline-flex;
+				}
+
+				&.visible {
+					transform: translate(0%, 0%);
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			&.animate-out {
+				.amount {
+					transform: translate(-16px, 0%);
+					opacity: 0;
+				}
+			}
+		}
+
+		.includes {
+			text-align: center;
+			margin: $spacing-2 0;
+			font-size: 14px;
+			color: $colors-brand-primary;
+			font-weight: 600;
+			text-wrap: balance;
+		}
+
+		.list-title {
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+			gap: $spacing-1;
+			background-color: $colors-background-secondary;
+			padding: $spacing-1 $spacing-1 * 1.5;
+			margin-top: $spacing-3;
+		}
+
+		.list {
+			list-style-type: none;
+			padding: 0;
+			margin: $spacing-1 0 0 0;
+
+			li {
+				margin-left: $spacing-1 * 1.5;
+
+				&:not(:last-child) {
+					margin-bottom: $spacing-2;
+				}
+
+				&[data-icon] {
+					padding-left: $spacing-4;
+
+					&:before {
+						content: "";
+						display: block;
+						width: $spacing-3;
+						height: $spacing-3;
+						background-size: 100% 100%;
+						background-position: center;
+						background-repeat: no-repeat;
+						position: absolute;
+						top: calc(50% - 12px);
+						left: 0;
+					}
+				}
+
+				&[data-icon="check"]:before {
+					background-image: url("#{$theme-path}/assets/icons/check-green.svg");
+				}
+
+				&[data-icon="swiss"]:before {
+					background-image: url("#{$theme-path}/assets/icons/swiss.svg");
+					background-size: 75% auto;
+				}
+			}
+		}
+
+		.not-enough-title {
+			margin: $spacing-1 0;
+			line-height: 1.1;
+			color: $colors-text-primary;
+			font-weight: 700;
+			font-size: 36px;
+		}
+
+		.not-enough-description {
+			font-size: 18px;
+		}
+
+		.not-enough-image {
+			display: block;
+			margin-top: auto;
+			margin-left: auto;
+			margin-right: -#{$spacing-3};
+			width: 90%;
+			max-width: 300px;
+			pointer-events: none;
+		}
+
+		.btn {
+			display: block;
+			width: 100%;
+			margin-top: $spacing-3;
+		}
+	}
+
+	@include breakpoint-down(m) {
+		max-width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+
+		.plan {
+			margin-top: $spacing-8;
+		}
+	}
+
+	@include breakpoint-up(m) {
+		.cards {
+			display: grid;
+			grid-gap: $spacing-6;
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}

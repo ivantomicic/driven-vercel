@@ -1,0 +1,48 @@
+// Give all elements Box Sizing - Border-Box //
+*,
+*:before,
+*:after {
+	position: relative;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+// Give Clickable Elements a Pointer Cursor //
+a[href],
+input[type="submit"],
+input[type="image"],
+label[for],
+select,
+button,
+.pointer {
+	transition: 250ms;
+	cursor: pointer;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+iframe {
+	border: 0;
+}
+
+// Add transition to links
+a,
+input[type="submit"],
+button {
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+input,
+textarea,
+select {
+	appearance: none;
+	outline: none;
+}

@@ -1,0 +1,96 @@
+$btn-padding-y: 10px;
+$btn-padding-x: 22px;
+
+.btns-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $spacing-2;
+
+	@include breakpoint-down(m) {
+		justify-content: center;
+	}
+}
+
+.btn {
+	display: inline-block;
+	border: none;
+	background-color: $colors-brand-primary;
+	color: $colors-text-reverse;
+	text-decoration: none;
+	font-weight: 600;
+	text-transform: uppercase;
+	border-radius: 100px;
+	text-align: center;
+	padding: $btn-padding-y $btn-padding-x;
+	transition: 250ms;
+
+	&:hover {
+		color: $colors-text-reverse;
+		background-color: darken($colors-brand-primary, 10%);
+	}
+
+	&.btn--small {
+		font-size: 14px;
+		padding: calc($btn-padding-y - 2px) calc($btn-padding-x - 4px);
+	}
+
+	&.btn--secondary {
+		background-color: transparent;
+		color: $colors-brand-primary;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			inset: 0;
+			border: 2px solid $colors-brand-primary;
+			border-radius: inherit;
+		}
+
+		&:hover {
+			color: $colors-text-reverse;
+			background-color: $colors-brand-primary;
+		}
+	}
+
+	&.btn--tertiary {
+		background-color: transparent;
+		color: $colors-brand-primary;
+
+		&:hover {
+			background-color: rgba($colors-brand-primary, 0.125);
+		}
+	}
+
+	&.btn--success {
+		background-color: $colors-status-success;
+	}
+
+	&.btn--loading {
+		color: transparent;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: calc(50% - 8px);
+			left: calc(50% - 8px);
+			display: block;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			border: 2px solid #fff;
+			border-color: #fff transparent #fff transparent;
+			animation: lds-dual-ring 1.2s linear infinite;
+		}
+	}
+}
+
+@keyframes lds-dual-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

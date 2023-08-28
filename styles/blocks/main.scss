@@ -1,0 +1,55 @@
+@import "./hero";
+@import "./hero-inner";
+@import "./carousel";
+@import "./features";
+@import "./team-members";
+@import "./steps";
+@import "./separator";
+@import "./plans";
+@import "./features-slider";
+@import "./demo-request";
+
+.block-wrapper {
+	margin: 62px auto;
+
+	@include breakpoint-up(m) {
+		margin: 120px auto;
+	}
+
+	> .btns-group:last-child,
+	> .block-editor-block-list__layout
+		> [data-type="driven/buttons"]
+		.btns-group {
+		margin-top: 64px;
+		justify-content: center;
+	}
+}
+
+.block-heading {
+	margin-bottom: 72px;
+
+	@include breakpoint-down(m) {
+		text-align: center;
+	}
+}
+
+.block-title {
+	margin: 0 0 $spacing-2 0;
+	font-size: 42px;
+	font-weight: 700;
+	line-height: 1.25;
+	letter-spacing: 0.025em;
+
+	strong {
+		color: $colors-brand-primary;
+	}
+
+	@include breakpoint-down(m) {
+		font-size: 32px;
+	}
+}
+
+.block-subtitle {
+	margin: 0;
+	font-size: 24px;
+}

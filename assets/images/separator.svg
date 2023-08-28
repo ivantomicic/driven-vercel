@@ -1,0 +1,17 @@
+
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 880 78"
+      preserveAspectRatio="xMinYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="hsla(14, 84%, 73.6%, 1)" fillOpacity="none"
+    >
+      <path d="M55 0H110L55 78H0L55 0Z"  />
+      <path d="M165 0H220L165 78H110L165 0Z" />
+      <path d="M275 0H330L275 78H220L275 0Z" />
+      <path d="M385 0H440L385 78H330L385 0Z" />
+      <path d="M825 0H880L825 78H770L825 0Z" />
+      <path d="M605 0H660L605 78H550L605 0Z" />
+    </svg>
+  
