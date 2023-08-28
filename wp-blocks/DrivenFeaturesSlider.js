@@ -1,35 +1,36 @@
 import { gql } from "@apollo/client";
 import { useRef } from "react"; // Import useRef
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "../lottie.json";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
-// Import Swiper styles
+import { Pagination, A11y } from "swiper/modules";
 import "swiper/css";
 
 export default function DrivenFeaturesSlider(props) {
 	const slides = JSON.parse(props?.props?.attributes.slides);
 	const swiperRef = useRef(null);
 
-	const handleSlideChange = () => {
-		const swiper = swiperRef.current.swiper;
-		const activeIndex = swiper.activeIndex;
-		const currentSlide = swiper.slides[activeIndex];
-		const title = currentSlide.getAttribute("data-title");
-		const subtitle = currentSlide.getAttribute("data-subtitle");
-
-		const titleContainer = document.querySelector(".slide-title");
-		const subtitleContainer = document.querySelector(".slide-subtitle");
-
-		titleContainer.classList.add("animate-out");
-		subtitleContainer.classList.add("animate-out");
-
+	const updateElementTextWithAnimation = (element, newText) => {
+		element.classList.add("animate-out");
 		setTimeout(() => {
-			titleContainer.innerText = title;
-			subtitleContainer.innerText = subtitle;
+			element.innerText = newText;
+			element.classList.remove("animate-out");
+		}, 700);
+	};
 
-			titleContainer.classList.remove("animate-out");
-			subtitleContainer.classList.remove("animate-out");
-		}, 650);
+	const handleSlideChange = () => {
+		const { swiper } = swiperRef.current;
+		const { activeIndex } = swiper;
+
+		console.log(slides[activeIndex].lottie);
+
+		const title = slides[activeIndex].title;
+		const titleContainer = document.querySelector(".slide-title");
+		updateElementTextWithAnimation(titleContainer, title);
+
+		const subtitle = slides[activeIndex].subtitle;
+		const subtitleContainer = document.querySelector(".slide-subtitle");
+		updateElementTextWithAnimation(subtitleContainer, subtitle);
 	};
 
 	return (
@@ -38,7 +39,9 @@ export default function DrivenFeaturesSlider(props) {
 			<div className="bg-r"></div>
 
 			<div className="container">
-				<div className="graphic" id="features-slider-player"></div>
+				<div className="graphic" id="features-slider-player">
+					<Lottie animationData={groovyWalkAnimation} />
+				</div>
 
 				<div className="content">
 					<div className="slide-title">{slides[0].title}</div>
@@ -46,7 +49,7 @@ export default function DrivenFeaturesSlider(props) {
 
 					<div className="feature-list-wrap">
 						<Swiper
-							modules={[Navigation, Pagination, Scrollbar, A11y]}
+							modules={[Pagination, A11y]}
 							ref={swiperRef}
 							speed={750}
 							slidesPerView={1}
@@ -58,11 +61,7 @@ export default function DrivenFeaturesSlider(props) {
 						>
 							{slides.map((slide, index) => {
 								return (
-									<SwiperSlide
-										key={index}
-										data-title={slide.title}
-										data-subtitle={slide.subtitle}
-									>
+									<SwiperSlide key={index}>
 										<ul className="list" key={index}>
 											{slide.features.map(
 												(feature, index) => (
