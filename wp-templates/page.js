@@ -1,5 +1,9 @@
 import { gql } from "@apollo/client";
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
+import flatListToHierarchical from "../utils/flatListToHierarchical";
+import getFragmentDataFromBlocks from "../utils/getFragmentDataFromBlocks";
+import { WordPressBlocksViewer } from "@faustwp/blocks";
+import blocks from "../wp-blocks";
 import { Header, Footer } from "../components";
 
 export default function Component(props) {
@@ -10,10 +14,13 @@ export default function Component(props) {
 
 	const themeSettings = props.data.drivenThemeSettings;
 
+	const { editorBlocks } = props?.data?.page;
+	const blocks = flatListToHierarchical(editorBlocks);
+
 	return (
 		<>
 			<Header props={themeSettings} />
-			<p>op op op !</p>
+			<WordPressBlocksViewer blocks={blocks} />
 			<Footer props={themeSettings} />
 		</>
 	);
