@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client";
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
-import { Header, Footer } from "../components";
 
 export default function Component(props) {
 	// Loading state for previews
@@ -12,9 +11,7 @@ export default function Component(props) {
 
 	return (
 		<>
-			<Header props={themeSettings} />
 			<p>op op op</p>
-			<Footer props={themeSettings} />
 		</>
 	);
 }
