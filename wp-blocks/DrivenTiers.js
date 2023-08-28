@@ -1,6 +1,7 @@
-import { useState } from "react";
-import Link from "next/link";
 import { gql, useQuery } from "@apollo/client";
+import { useState } from "react";
+import GutenbergBlocks from "../utils/GutenbergBlocks";
+import Link from "next/link";
 
 export default function DrivenTiers(props) {
 	if (props.loading) {
@@ -108,6 +109,8 @@ export default function DrivenTiers(props) {
 						className="not-enough-title"
 						dangerouslySetInnerHTML={{ __html: moreTitle }}
 					></p>
+
+					<GutenbergBlocks blocks={props?.props?.children} />
 				</div>
 			</div>
 		</div>

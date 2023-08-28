@@ -15,7 +15,7 @@ export default function DrivenSectionHeading(props) {
 			{!subtitleHide && subtitle && (
 				<div
 					className="block-subtitle"
-					dangerouslySetInnerHTML={{ __html: title }}
+					dangerouslySetInnerHTML={{ __html: subtitle }}
 				/>
 			)}
 		</div>
