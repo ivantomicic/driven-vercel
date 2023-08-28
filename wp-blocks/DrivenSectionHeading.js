@@ -1,7 +1,8 @@
 import { gql } from "@apollo/client";
 
 export default function DrivenSectionHeading(props) {
-	const { title, titleHide, subtitle, subtitleHide } = props.attributes;
+	const { title, titleHide, subtitle, subtitleHide } =
+		props?.props?.attributes;
 
 	return (
 		<div className="block-heading">

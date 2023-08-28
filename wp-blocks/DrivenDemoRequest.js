@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 import { PictureTag } from "../utils/themeUtils";
 
 export default function DrivenDemoRequest(props) {
-	const { subtitle, title, image: rawImage } = props.attributes;
+	const { subtitle, title, image: rawImage } = props?.props?.attributes;
 	const image = JSON.parse(rawImage);
 
 	return (

@@ -1,10 +1,11 @@
 import { gql } from "@apollo/client";
-import { WordPressBlocksViewer } from "@faustwp/blocks";
+// import { WordPressBlocksViewer } from "@faustwp/blocks";
 
 export default function DrivenArticle(props) {
 	return (
 		<div className="block-wrapper container">
-			<WordPressBlocksViewer blocks={props?.children ?? []} />
+			{/* <WordPressBlocksViewer blocks={props?.children ?? []} /> */}
+			artikl
 		</div>
 	);
 }

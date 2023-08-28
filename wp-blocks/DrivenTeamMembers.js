@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { WordPressBlocksViewer } from "@faustwp/blocks";
+// import { WordPressBlocksViewer } from "@faustwp/blocks";
 
 export default function DrivenTeamMembers(props) {
 	const { title } = props.attributes;
@@ -9,7 +9,8 @@ export default function DrivenTeamMembers(props) {
 			{title && <p className="block-title">{title}</p>}
 
 			<div className="member-cards">
-				<WordPressBlocksViewer blocks={props?.children ?? []} />
+				{/* <WordPressBlocksViewer blocks={props?.children ?? []} /> */}
+				kartice
 			</div>
 		</div>
 	);

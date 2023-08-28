@@ -2,9 +2,9 @@ import { gql } from "@apollo/client";
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
 import { flatListToHierarchical } from "@faustwp/core";
 import getFragmentDataFromBlocks from "../utils/getFragmentDataFromBlocks";
-import { WordPressBlocksViewer } from "@faustwp/blocks";
 import blocks from "../wp-blocks";
 import { Header, Footer } from "../components";
+import GutenbergBlocks from "../utils/GutenbergBlocks";
 
 export default function Component(props) {
 	// Loading state for previews
@@ -20,7 +20,7 @@ export default function Component(props) {
 	return (
 		<>
 			<Header props={themeSettings} />
-			<WordPressBlocksViewer blocks={blocks} />
+			<GutenbergBlocks blocks={blocks} />
 			<Footer props={themeSettings} />
 		</>
 	);

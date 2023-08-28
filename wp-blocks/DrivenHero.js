@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 import { PictureTag } from "../utils/themeUtils";
-import { WordPressBlocksViewer } from "@faustwp/blocks";
+import GutenbergBlocks from "../utils/GutenbergBlocks";
 
 export default function DrivenHero(props) {
-	const { subtitle, title, image: rawImage } = props.attributes;
+	const { subtitle, title, image: rawImage } = props?.props?.attributes;
 	const image = JSON.parse(rawImage);
 
 	return (
@@ -15,7 +15,7 @@ export default function DrivenHero(props) {
 						className="hero-title"
 						dangerouslySetInnerHTML={{ __html: title }}
 					></p>
-					<WordPressBlocksViewer blocks={props?.children ?? []} />
+					<GutenbergBlocks blocks={props?.props?.children} />
 				</div>
 
 				<div className="image">

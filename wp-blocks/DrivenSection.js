@@ -1,10 +1,13 @@
 import { gql } from "@apollo/client";
-import { WordPressBlocksViewer } from "@faustwp/blocks";
+import GutenbergBlocks from "../utils/GutenbergBlocks";
+// import { WordPressBlocksViewer } from "@faustwp/blocks";
 
 export default function DrivenSection(props) {
+	console.log(props);
+
 	return (
 		<div className="block-wrapper container">
-			<WordPressBlocksViewer blocks={props?.children ?? []} />
+			<GutenbergBlocks blocks={props?.props?.children} />
 		</div>
 	);
 }

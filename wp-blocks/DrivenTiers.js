@@ -8,7 +8,7 @@ export default function DrivenTiers(props) {
 	}
 
 	const [isAnuall, setIsAnuall] = useState(false);
-	const { moreLabel, moreTitle } = props?.attributes;
+	const { moreLabel, moreTitle } = props?.props?.attributes;
 
 	const { data } = useQuery(DrivenTiers.query);
 	const tiers = data?.drivenTiersShared?.tiers?.tiers;
