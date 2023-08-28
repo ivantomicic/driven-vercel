@@ -6,6 +6,8 @@ export default function DrivenHero(props) {
 	const { subtitle, title, image: rawImage } = props.attributes;
 	const image = JSON.parse(rawImage);
 
+	console.log("🍍", props.isDynamic);
+
 	return (
 		<div className="block-hero">
 			<div className="container">
