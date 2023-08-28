@@ -13,6 +13,7 @@ export default function Component(props) {
 	return (
 		<>
 			<Header props={themeSettings} />
+			<p>op op op</p>
 			<Footer props={themeSettings} />
 		</>
 	);
