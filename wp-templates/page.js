@@ -25,8 +25,6 @@ Component.variables = ({ databaseId }, ctx) => {
 
 Component.query = gql`
 	${BlogInfoFragment}
-	${Header.fragments.entry}
-	${Footer.fragments.entry}
 
 	query GetPageData($databaseId: ID!, $asPreview: Boolean = false) {
 		page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
@@ -35,10 +33,6 @@ Component.query = gql`
 		}
 		generalSettings {
 			...BlogInfoFragment
-		}
-		drivenThemeSettings {
-			...HeaderFragment
-			...FooterFragment
 		}
 	}
 `;
