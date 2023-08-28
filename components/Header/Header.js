@@ -4,7 +4,7 @@ import Link from "next/link";
 import logo from "../../assets/images/logo.svg";
 
 export default function Header(props) {
-	const { mainNavigation: nav } = props?.props.themeSettings;
+	const { mainNavigation: nav } = props?.props?.themeSettings;
 
 	return (
 		<header className="site-navigation">
