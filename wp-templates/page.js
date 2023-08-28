@@ -38,10 +38,19 @@ Component.query = gql`
 	${Header.fragments.entry}
 	${Footer.fragments.entry}
 
+	# Get all block fragments and add them to the query
+	${getFragmentDataFromBlocks(blocks).entries}
+
 	query GetPageData($databaseId: ID!, $asPreview: Boolean = false) {
 		page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
 			title
-			content
+			editorBlocks {
+				id: clientId
+				parentId: parentClientId
+				renderedHtml
+				# Get all block fragment keys and call them in the query
+				${getFragmentDataFromBlocks(blocks).keys}
+			}
 		}
 		generalSettings {
 			...BlogInfoFragment
