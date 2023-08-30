@@ -1,7 +1,6 @@
 import { gql } from "@apollo/client";
 import { useRef } from "react"; // Import useRef
 import { Player } from "@lottiefiles/react-lottie-player";
-import groovyWalkAnimation from "../lottie.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y } from "swiper/modules";
 import "swiper/css";
@@ -22,8 +21,6 @@ export default function DrivenFeaturesSlider(props) {
 		const { swiper } = swiperRef.current;
 		const { activeIndex } = swiper;
 
-		console.log(slides[activeIndex].lottie);
-
 		const title = slides[activeIndex].title;
 		const titleContainer = document.querySelector(".slide-title");
 		updateElementTextWithAnimation(titleContainer, title);
@@ -33,8 +30,6 @@ export default function DrivenFeaturesSlider(props) {
 		updateElementTextWithAnimation(subtitleContainer, subtitle);
 	};
 
-	console.log(slides[0].lottie.url);
-
 	return (
 		<div className="block-features-slider">
 			<div className="bg-l"></div>
@@ -42,11 +37,10 @@ export default function DrivenFeaturesSlider(props) {
 
 			<div className="container">
 				<div className="graphic" id="features-slider-player">
-					{/* <Lottie animationData={groovyWalkAnimation} /> */}
 					<Player
 						autoplay
 						loop
-						src={slides[0].lottie.url}
+						src="https://wp-staging.driven.world/wp-content/uploads/2023/08/Secure.json"
 						style={{ height: "300px", width: "300px" }}
 					></Player>
 				</div>
