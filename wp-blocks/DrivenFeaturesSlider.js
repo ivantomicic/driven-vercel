@@ -1,12 +1,16 @@
 import { gql } from "@apollo/client";
-import { useRef } from "react"; // Import useRef
-import { Player } from "@lottiefiles/react-lottie-player";
+import { useRef, useState } from "react"; // Import useRef
+import Lottie from "react-lottie-player";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y } from "swiper/modules";
 import "swiper/css";
 
 export default function DrivenFeaturesSlider(props) {
 	const slides = JSON.parse(props?.props?.attributes.slides);
+	const [currentAnimationData, setCurrentAnimationData] = useState(
+		slides[0].lottieJson
+	);
+	const [shouldPlay, setShouldPlay] = useState(true);
 	const swiperRef = useRef(null);
 
 	const updateElementTextWithAnimation = (element, newText) => {
@@ -28,6 +32,20 @@ export default function DrivenFeaturesSlider(props) {
 		const subtitle = slides[activeIndex].subtitle;
 		const subtitleContainer = document.querySelector(".slide-subtitle");
 		updateElementTextWithAnimation(subtitleContainer, subtitle);
+
+		const animationData = slides[activeIndex].lottieJson;
+		const player = document.querySelector("#features-slider-player");
+		player.classList.add("animate-out");
+
+		setTimeout(() => {
+			setCurrentAnimationData(animationData);
+			setShouldPlay(false);
+		}, 350);
+
+		setTimeout(() => {
+			player.classList.remove("animate-out");
+			setShouldPlay(true);
+		}, 700);
 	};
 
 	return (
@@ -37,12 +55,10 @@ export default function DrivenFeaturesSlider(props) {
 
 			<div className="container">
 				<div className="graphic" id="features-slider-player">
-					<Player
-						autoplay
-						loop
-						src="https://wp-staging.driven.world/wp-content/uploads/2023/08/Secure.json"
-						style={{ height: "300px", width: "300px" }}
-					></Player>
+					<Lottie
+						animationData={currentAnimationData}
+						play={shouldPlay}
+					/>
 				</div>
 
 				<div className="content">
