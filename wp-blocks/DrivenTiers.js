@@ -2,6 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
 import GutenbergBlocks from "../utils/GutenbergBlocks";
 import Link from "next/link";
+import { Loader } from "../components/";
 
 export default function DrivenTiers(props) {
 	if (props.loading) {
@@ -31,7 +32,7 @@ export default function DrivenTiers(props) {
 				</span>
 			</div>
 
-			{tiers && (
+			{tiers ? (
 				<div className="cards">
 					{tiers?.map((tier, index) => {
 						return (
@@ -121,6 +122,8 @@ export default function DrivenTiers(props) {
 						<GutenbergBlocks blocks={props?.props?.children} />
 					</div>
 				</div>
+			) : (
+				<Loader />
 			)}
 		</div>
 	);

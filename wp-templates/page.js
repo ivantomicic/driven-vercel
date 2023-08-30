@@ -5,13 +5,13 @@ import { BlogInfoFragment } from "../fragments/GeneralSettings";
 import { flatListToHierarchical } from "@faustwp/core";
 import getFragmentDataFromBlocks from "../utils/getFragmentDataFromBlocks";
 import blocks from "../wp-blocks";
-import { Header, Footer } from "../components";
+import { Header, Footer, Loader } from "../components";
 import GutenbergBlocks from "../utils/GutenbergBlocks";
 
 export default function Component(props) {
 	// Loading state for previews
 	if (props.loading) {
-		return <>Loading...</>;
+		return <Loader />;
 	}
 
 	const themeSettings = props.data.drivenThemeSettings;
