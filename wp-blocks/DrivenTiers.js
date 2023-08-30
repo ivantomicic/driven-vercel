@@ -31,88 +31,97 @@ export default function DrivenTiers(props) {
 				</span>
 			</div>
 
-			<div className="cards">
-				{tiers?.map((tier, index) => {
-					return (
-						<div className="plan" key={index}>
-							<p className="label">{tier.title}</p>
+			{tiers && (
+				<div className="cards">
+					{tiers?.map((tier, index) => {
+						return (
+							<div className="plan" key={index}>
+								<p className="label">{tier.title}</p>
 
-							<div className="price">
-								<div
-									className={`amount ${
-										isAnuall && "anually"
-									}`}
-								>
-									{isAnuall
-										? "$" + tier.pricePerMonthBilledAnually
-										: "$" + tier.pricePerMonthBilledMonthly}
-									<span>/month</span>
-								</div>
-							</div>
-
-							<p className="includes">{tier.description}</p>
-
-							{tier.tierFeatures.map((featureGroup, index) => {
-								return (
-									<div key={index}>
-										<p className="list-title">
-											<img
-												src={
-													featureGroup.icon.sourceUrl
-												}
-												alt=""
-											/>
-											{featureGroup.title}
-										</p>
-
-										<ul className="list">
-											{featureGroup.features.map(
-												(feature, index) => {
-													{
-														/* if feature.icon exists and its not "none" add data-icon="its value to li" */
-													}
-													return (
-														<li
-															key={index}
-															data-icon={
-																feature.icon !==
-																"none"
-																	? feature.icon
-																	: ""
-															}
-														>
-															{feature.feature}
-														</li>
-													);
-												}
-											)}
-										</ul>
+								<div className="price">
+									<div
+										className={`amount ${
+											isAnuall && "anually"
+										}`}
+									>
+										{isAnuall
+											? "$" +
+											  tier.pricePerMonthBilledAnually
+											: "$" +
+											  tier.pricePerMonthBilledMonthly}
+										<span>/month</span>
 									</div>
-								);
-							})}
+								</div>
 
-							{tier.button && (
-								<Link
-									href={tier.button.url}
-									className="btn btn--secondary"
-								>
-									{tier.button.title}
-								</Link>
-							)}
-						</div>
-					);
-				})}
+								<p className="includes">{tier.description}</p>
 
-				<div className="plan">
-					<p className="label">{moreLabel}</p>
-					<p
-						className="not-enough-title"
-						dangerouslySetInnerHTML={{ __html: moreTitle }}
-					></p>
+								{tier.tierFeatures.map(
+									(featureGroup, index) => {
+										return (
+											<div key={index}>
+												<p className="list-title">
+													<img
+														src={
+															featureGroup.icon
+																.sourceUrl
+														}
+														alt=""
+													/>
+													{featureGroup.title}
+												</p>
 
-					<GutenbergBlocks blocks={props?.props?.children} />
+												<ul className="list">
+													{featureGroup.features.map(
+														(feature, index) => {
+															{
+																/* if feature.icon exists and its not "none" add data-icon="its value to li" */
+															}
+															return (
+																<li
+																	key={index}
+																	data-icon={
+																		feature.icon !==
+																		"none"
+																			? feature.icon
+																			: ""
+																	}
+																>
+																	{
+																		feature.feature
+																	}
+																</li>
+															);
+														}
+													)}
+												</ul>
+											</div>
+										);
+									}
+								)}
+
+								{tier.button && (
+									<Link
+										href={tier.button.url}
+										className="btn btn--secondary"
+									>
+										{tier.button.title}
+									</Link>
+								)}
+							</div>
+						);
+					})}
+
+					<div className="plan">
+						<p className="label">{moreLabel}</p>
+						<p
+							className="not-enough-title"
+							dangerouslySetInnerHTML={{ __html: moreTitle }}
+						></p>
+
+						<GutenbergBlocks blocks={props?.props?.children} />
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 }
