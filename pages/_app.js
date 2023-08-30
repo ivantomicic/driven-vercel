@@ -3,6 +3,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { FaustProvider } from "@faustwp/core";
+import NextNProgress from "nextjs-progressbar";
 import "@faustwp/core/dist/css/toolbar.css";
 import "../styles/stylesheets.scss";
 
@@ -18,6 +19,7 @@ export default function MyApp({ Component, pageProps }) {
 				/>
 				<link rel="icon" type="image/png" href="/images/favicon.png" />
 			</Head>
+			<NextNProgress color="#ff5724" />
 			<Component {...pageProps} key={router.asPath} />
 		</FaustProvider>
 	);
