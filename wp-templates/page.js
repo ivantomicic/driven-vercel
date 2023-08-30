@@ -1,4 +1,6 @@
 import { gql } from "@apollo/client";
+import parse from "html-react-parser";
+import Head from "next/head";
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
 import { flatListToHierarchical } from "@faustwp/core";
 import getFragmentDataFromBlocks from "../utils/getFragmentDataFromBlocks";
@@ -14,13 +16,13 @@ export default function Component(props) {
 
 	const themeSettings = props.data.drivenThemeSettings;
 
-	const { editorBlocks } = props?.data?.page;
-	const blocks = flatListToHierarchical(editorBlocks);
+	const { editorBlocks, seo } = props?.data?.page;
 
 	return (
 		<>
+			<Head>{parse(seo.fullHead)}</Head>
 			<Header props={themeSettings} />
-			<GutenbergBlocks blocks={blocks} />
+			<GutenbergBlocks blocks={flatListToHierarchical(editorBlocks)} />
 			<Footer props={themeSettings} />
 		</>
 	);
@@ -44,6 +46,11 @@ Component.query = gql`
 	query GetPageData($databaseId: ID!, $asPreview: Boolean = false) {
 		page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
 			title
+			seo {
+				metaDesc
+				fullHead
+				title
+			}
 			editorBlocks {
 				id: clientId
 				parentId: parentClientId

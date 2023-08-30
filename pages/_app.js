@@ -16,6 +16,7 @@ export default function MyApp({ Component, pageProps }) {
 					href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap"
 					rel="stylesheet"
 				/>
+				<link rel="icon" type="image/png" href="/images/favicon.png" />
 			</Head>
 			<Component {...pageProps} key={router.asPath} />
 		</FaustProvider>
