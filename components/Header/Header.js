@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../assets/images/logo.svg";
+import Logo from "../../assets/images/logo.svg?inline";
 
 export default function Header(props) {
 	const { mainNavigation: nav } = props?.props?.themeSettings;
@@ -9,8 +9,8 @@ export default function Header(props) {
 	return (
 		<header className="site-navigation">
 			<nav className="container">
-				<Link href="/">
-					<Image priority src={logo} alt="Driven.World" />
+				<Link href="/" className="logo">
+					<Logo />
 				</Link>
 
 				<ul className="nav">

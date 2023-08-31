@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
-import Image from "next/image";
 import Link from "next/link";
+import { SocialMediaLinks } from "../../components";
 
 function NavigationList({ items }) {
 	return (
@@ -23,6 +23,7 @@ export default function Footer(props) {
 		newsletterSubtitle,
 		newsletterConsent,
 		socialMediaTitle,
+		socialMediaNavigation,
 		footerNavigation,
 		legalNavigation,
 	} = props?.props.themeSettings;
@@ -74,6 +75,7 @@ export default function Footer(props) {
 
 						<div className="column">
 							<p className="column-title">{socialMediaTitle}</p>
+							<SocialMediaLinks links={socialMediaNavigation} />
 						</div>
 					</div>
 
