@@ -7,6 +7,7 @@ export default function DrivenDemoRequest(props) {
 	const image = JSON.parse(rawImage);
 
 	const [isLoading, setLoading] = useState(false);
+	const [isSuccess, setSuccess] = useState(false);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 
@@ -38,10 +39,17 @@ export default function DrivenDemoRequest(props) {
 			const data = await response.json();
 			console.log("Success:", data);
 			setLoading(false);
+			setSuccess(true);
 		} catch (error) {
 			console.log("Error:", error);
 			setLoading(false);
 		}
+	};
+
+	const getButtonClass = () => {
+		if (isLoading) return "btn btn--loading";
+		if (isSuccess) return "btn btn--success";
+		return "btn";
 	};
 
 	return (
@@ -73,10 +81,10 @@ export default function DrivenDemoRequest(props) {
 					/>
 					<button
 						type="submit"
-						className={`btn ${isLoading ? "btn--loading" : ""}`}
-						disabled={isLoading}
+						className={getButtonClass()}
+						disabled={isLoading || isSuccess}
 					>
-						Request Demo
+						{isSuccess ? "Success" : "Request Demo"}
 					</button>
 				</form>
 			</div>
