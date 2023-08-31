@@ -1,5 +1,4 @@
 import { gql } from "@apollo/client";
-import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../assets/images/logo.svg?inline";
 
