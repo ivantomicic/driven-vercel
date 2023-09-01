@@ -24,9 +24,6 @@ const nextConfig = {
 
 		return config;
 	},
-	env: {
-		REVALIDATION_TOKEN: process.env.REVALIDATION_TOKEN,
-	},
 };
 
 module.exports = withFaust(nextConfig);
