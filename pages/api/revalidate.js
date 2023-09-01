@@ -3,18 +3,10 @@ export default async function handler(req, res) {
 		return res.status(401).json({ message: "Invalid token" });
 	}
 
-	let path = req.query.path;
-
-	// If path is empty or not provided, treat it as the homepage
-	if (!path || path === "") {
-		// Set path to a value that represents the homepage
-		path = "/";
-	}
-
 	try {
-		await res.revalidate(path);
-		return res.json({ revalidated: true });
+		await res.revalidate(req.query.path);
+		return res.json({ revalidated: req.query.path });
 	} catch (err) {
-		return res.status(500).send("Error revalidating");
+		return res.status(500).send("Error revalidating " + req.query.path);
 	}
 }

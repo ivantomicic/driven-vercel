@@ -68,3 +68,5 @@ Component.query = gql`
 		}
 	}
 `;
+
+export const revalidate = 10;
